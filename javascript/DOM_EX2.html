@@ -7,51 +7,56 @@
 			}
 		</style>
 		<script type="text/javascript">
-			var aid=new Array();
+			var idArray=[];
 			// Dont need j and count
-			var i,j=0,l,count=0;
+			//changes done
 			var x=document.getElementsByTagName("input");
-			function defaultStatus()
-			{
-				for(i=0;i<x.length;i++)
-				{
-					x[i].checked=false;
-				}
-			}
 			function checkList(o)
 			{
-				if(o.id!="none" && count<=3)
+				if(o.id!="none" && idArray.length<=4)
 				{
-					// Push in arrat
-					aid[j]=o.id;
-					j++;
-					count++;
-					document.getElementById("none").checked=false;
+					// Push in array
+					// changes done
+					if(!o.checked)
+					{
+						for(var k=0;k<idArray.length;k++)
+						{
+							if(o.id==idArray[k])
+							{
+								idArray.splice(k,1);
+							}
+						}
+					}
+					else
+					{
+						idArray.push(o.id)
+						document.getElementById("none").checked=false;
+						if(idArray.length==4)
+						{
+							o.checked=false;
+							idArray.pop();
+							text="Only 3 days can be selected! you have already selected: ";
+							for(var j=0;j<idArray.length;j++)
+							{
+								text+=document.getElementById(idArray[j]).nextSibling.textContent;
+							}	
+							alert(text);
+						}
+					}
 				}
 				if(o.id=="none")
 				{
-					j=0;
-					count=0;
-					for(i=0;i<x.length-1;i++)
+					var l=0;
+					while(idArray.length)
 					{
-						x[i].checked=false;
+						document.getElementById(idArray[l]).checked=false;
+						idArray.shift();
 					}
-				}
-				if(count>3)
-				{
-					text="Only 3 days can be selected! ";
-					text+="you have already selected: ";
-					for(k=0;k<aid.length-1;k++)
-					{
-						text+=document.getElementById(aid[k]).nextSibling.textContent;
-					}
-					alert(text);
-					o.checked=false;
-				}
+				}	
 			}
 		</script>
 	</head>
-	<body onload="defaultStatus()">
+	<body>
 		<div class="checklist">
 			<form action="" method="">
 				<input type="checkbox" name="wkdays" id="wd1" onclick="checkList(this)" /> SUNDAY <br />
