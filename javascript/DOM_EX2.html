@@ -8,6 +8,7 @@
 		</style>
 		<script type="text/javascript">
 			var aid=new Array();
+			// Dont need j and count
 			var i,j=0,l,count=0;
 			var x=document.getElementsByTagName("input");
 			function defaultStatus()
@@ -21,6 +22,7 @@
 			{
 				if(o.id!="none" && count<=3)
 				{
+					// Push in arrat
 					aid[j]=o.id;
 					j++;
 					count++;
