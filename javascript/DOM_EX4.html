@@ -17,66 +17,57 @@
 			}
 		</style>
 		<script type="text/javascript">
-			function defaultStatus()
-			{
-				var x=document.getElementsByClassName("disp1");
-				for(i=0;i<x.length;i++)
-				{
-					x[i].checked=false;
-				}
-			}
 			function displayChildList(o)
 			{
-				if(o.checked==true)
+				switch(o.id)
 				{
-					switch(o.id)
+					case "c1":
 					{
-						case "c1":
+						if(o.checked)
 						{
 							document.getElementsByClassName("hid1")[0].style.display="block";
-							break;
 						}
-						case "c2":
-						{
-							document.getElementsByClassName("hid2")[0].style.display="block";
-							break;
-						}
-						case "c3":
-						{
-							document.getElementsByClassName("hid3")[0].style.display="block";
-							break;
-						}
-						case "c4":
-						{
-							document.getElementsByClassName("hid4")[0].style.display="block";
-							break;
-						}
-					}
-				}
-				else
-				{
-					switch(o.id)
-					{
-						case "c1":
+						else
 						{
 							document.getElementsByClassName("hid1")[0].style.display="none";
-							break;
 						}
-						case "c2":
+						break;
+					}
+					case "c2":
+					{
+						if(o.checked)
+						{
+							document.getElementsByClassName("hid2")[0].style.display="block";
+						}
+						else
 						{
 							document.getElementsByClassName("hid2")[0].style.display="none";
-							break;
 						}
-						case "c3":
+						break;
+					}
+					case "c3":
+					{
+						if(o.checked)
+						{
+							document.getElementsByClassName("hid3")[0].style.display="block";
+						}
+						else
 						{
 							document.getElementsByClassName("hid3")[0].style.display="none";
-							break;
 						}
-						case "c4":
+						break;
+					}
+					case "c4":
+					{
+						if(o.checked)
+						{
+							document.getElementsByClassName("hid4")[0].style.display="block";
+						}
+						else
 						{
 							document.getElementsByClassName("hid4")[0].style.display="none";
-							break;
-						}	
+						}
+						break;
 					}
 				}
 			}
