@@ -11,10 +11,6 @@
 			{
 				float:right;
 			}
-			a
-			{
-				display:none;
-			}
 		</style>
 		<script type="text/javascript">
 			function addNewRow()
@@ -42,11 +38,9 @@
 				aNode2.style.display="block";
 				aDiv.appendChild(aNode1);
 				aDiv.appendChild(aNode2);
-				text1.type="text";
-				text1.name="gtext1";
-				text2.type="text";
-				text2.name="gtext2";
-				text3.type="button";
+				text1.setAttribute=("type","text");
+				text2.setAttribute=("type","text");
+				text3.setAttribute=("type","button");
 				text3.innerHTML="save";
 				cell1.appendChild(text1);
 				cell2.appendChild(text2);
