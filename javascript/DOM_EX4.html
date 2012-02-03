@@ -20,6 +20,10 @@
 		<script type="text/javascript">
 			function displayChildList(o)
 			{
+				// Can be written like this
+				// We dont need case
+				// var c = o.id;
+				// document.getElementsByClassName(c)[0].style.display="block";
 				if(o.checked)
 				{
 					document.getElementsByClassName(o.id+"-hide")[0].style.display="block";
@@ -31,9 +35,9 @@
 			}
 		</script>
 	</head>
-	<body onload="defaultStatus()">
+	<body>
 		<div class="checklist">
-			<input type="checkbox" id="c1" class="disp"onclick="displayChildList(this)" /> COLOR <br />
+			<input type="checkbox" id="c1" class="disp" onclick="displayChildList(this)" /> COLOR <br />
 				<span class="c1-hide">
 					<input type="checkbox" /> Red <br />
 					<input type="checkbox" /> Yellow <br />

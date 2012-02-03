@@ -1,4 +1,5 @@
 <!-- changes done -->
+<!-- Break into functions -->
 <html>
 	<head>
 		<style type="text/css">
@@ -13,6 +14,7 @@
 			// Dont need j and count
 			//changes done
 			var x=document.getElementsByTagName("input");
+
 			function checkList(o)
 			{
 				if(o.id!="none" && count<4)
@@ -38,6 +40,7 @@
 					
 					if(count<=3 && o.checked)
 					{
+						// There is no point in pushing to an array, cjeck length and then remove from array
 						idArray.push(o.id)
 						document.getElementById("none").checked=false;
 					}
@@ -46,7 +49,6 @@
 					{
 						o.checked=false;
 						count--;
-						alert(count);
 						text="Only 3 days can be selected! you have already selected: ";
 						for(var j=0;j<idArray.length;j++)
 						{
