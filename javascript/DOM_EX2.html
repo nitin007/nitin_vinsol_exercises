@@ -1,3 +1,4 @@
+<!-- changes done -->
 <html>
 	<head>
 		<style type="text/css">
@@ -8,17 +9,24 @@
 		</style>
 		<script type="text/javascript">
 			var idArray=[];
+			var count=0;
 			// Dont need j and count
 			//changes done
 			var x=document.getElementsByTagName("input");
 			function checkList(o)
 			{
-				if(o.id!="none" && idArray.length<=4)
+				if(o.id!="none" && count<4)
 				{
 					// Push in array
 					// changes done
+					if(o.checked)
+					{
+						count++;
+					}
+					
 					if(!o.checked)
 					{
+						count--;
 						for(var k=0;k<idArray.length;k++)
 						{
 							if(o.id==idArray[k])
@@ -27,16 +35,18 @@
 							}
 						}
 					}
-					else
+					
+					if(count<=3 && o.checked)
 					{
 						idArray.push(o.id)
 						document.getElementById("none").checked=false;
 					}
 					
-					if(idArray.length>=4)
+					if(count>=4)
 					{
 						o.checked=false;
-						idArray.pop();
+						count--;
+						alert(count);
 						text="Only 3 days can be selected! you have already selected: ";
 						for(var j=0;j<idArray.length;j++)
 						{
@@ -45,16 +55,16 @@
 						alert(text);
 					}
 				}
-				
-				
-				
+					
 				if(o.id=="none")
 				{
 					deSelectAll();
 				}	
 			}
+			
 			function deSelectAll()
 			{
+				count=0;
 				var l=0;
 					while(idArray.length)
 					{
