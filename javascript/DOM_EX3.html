@@ -1,3 +1,4 @@
+<!-- Divide into functions -->
 <html>
 	<head>
 		<style type="text/css">
@@ -17,34 +18,50 @@
 			{
 				var table=document.getElementById("jtable");
 				var row=table.insertRow(-1);
+				
 				var cell1=row.insertCell(0);
 				var cell2=row.insertCell(1);
 				var cell3=row.insertCell(2);
+				
 				var text1=document.createElement("input");
 				var text2=document.createElement("input");
+				
 				var text3=document.createElement("button");
+				
+				// Input
 				var tNode1=document.createTextNode("");
 				var tNode2=document.createTextNode("");
+				
 				var aDiv=document.createElement("div");
+				
+				// Should be created after record has been saved
 				var aNode1=document.createElement("a");
 				var aNodeTxt1=document.createTextNode("edit");
+				
 				var aNode2=document.createElement("a");
 				var aNodeTxt2=document.createTextNode("delete");
+				
 				aNode1.setAttribute("href","#");
 				aNode1.appendChild(aNodeTxt1);
 				aNode1.style.display="block";
+				
 				aNode2.setAttribute("href","#");
 				aNode2.appendChild(aNodeTxt2);
 				aNode2.style.display="block";
+				
 				aDiv.appendChild(aNode1);
 				aDiv.appendChild(aNode2);
+				
 				text1.setAttribute=("type","text");
 				text2.setAttribute=("type","text");
 				text3.setAttribute=("type","button");
+				
 				text3.innerHTML="save";
+				
 				cell1.appendChild(text1);
 				cell2.appendChild(text2);
 				cell3.appendChild(text3);
+				
 				text3.onclick = function save()
 				{
 					tNode1.nodeValue=text1.value;
