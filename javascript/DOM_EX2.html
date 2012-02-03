@@ -1,3 +1,4 @@
+<!-- Break into functions -->
 <html>
 	<head>
 		<style type="text/css">
@@ -30,6 +31,7 @@
 					}
 					else
 					{
+						// There is no point in pushing to an array, cjeck length and then remove from array
 						idArray.push(o.id)
 						document.getElementById("none").checked=false;
 						if(idArray.length==4)

@@ -19,6 +19,11 @@
 		<script type="text/javascript">
 			function displayChildList(o)
 			{
+				// Can be written like this
+				// We dont need case
+				// var c = o.id;
+				// document.getElementsByClassName(c)[0].style.display="block";
+				
 				switch(o.id)
 				{
 					case "c1":
@@ -76,7 +81,7 @@
 	<body onload="defaultStatus()">
 		<div class="checklist">
 			<input type="checkbox" id="c1" class="disp1" onclick="displayChildList(this)" /> COLOR <br />
-				<span class="hid1">
+				<span class="hid1 c1-block">
 					<input type="checkbox" /> Red <br />
 					<input type="checkbox" /> Yellow <br />
 					<input type="checkbox" /> Green <br />
