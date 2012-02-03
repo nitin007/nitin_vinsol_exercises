@@ -1,3 +1,4 @@
+<!-- changes done -->
 <html>
 	<head>
 		<style type="text/css">
@@ -10,7 +11,7 @@
 				background-color:#f1f5e2;
 				overflow:scroll;
 			}
-			.hid1, .hid2, .hid3, .hid4
+			.c1-hide, .c2-hide, .c3-hide, .c4-hide
 			{
 				margin-left:20px;
 				display:none;
@@ -19,82 +20,39 @@
 		<script type="text/javascript">
 			function displayChildList(o)
 			{
-				switch(o.id)
+				if(o.checked)
 				{
-					case "c1":
-					{
-						if(o.checked)
-						{
-							document.getElementsByClassName("hid1")[0].style.display="block";
-						}
-						else
-						{
-							document.getElementsByClassName("hid1")[0].style.display="none";
-						}
-						break;
-					}
-					case "c2":
-					{
-						if(o.checked)
-						{
-							document.getElementsByClassName("hid2")[0].style.display="block";
-						}
-						else
-						{
-							document.getElementsByClassName("hid2")[0].style.display="none";
-						}
-						break;
-					}
-					case "c3":
-					{
-						if(o.checked)
-						{
-							document.getElementsByClassName("hid3")[0].style.display="block";
-						}
-						else
-						{
-							document.getElementsByClassName("hid3")[0].style.display="none";
-						}
-						break;
-					}
-					case "c4":
-					{
-						if(o.checked)
-						{
-							document.getElementsByClassName("hid4")[0].style.display="block";
-						}
-						else
-						{
-							document.getElementsByClassName("hid4")[0].style.display="none";
-						}
-						break;
-					}
+					document.getElementsByClassName(o.id+"-hide")[0].style.display="block";
+				}
+				else
+				{
+					document.getElementsByClassName(o.id+"-hide")[0].style.display="none";
 				}
 			}
 		</script>
 	</head>
 	<body onload="defaultStatus()">
 		<div class="checklist">
-			<input type="checkbox" id="c1" class="disp1" onclick="displayChildList(this)" /> COLOR <br />
-				<span class="hid1">
+			<input type="checkbox" id="c1" class="disp"onclick="displayChildList(this)" /> COLOR <br />
+				<span class="c1-hide">
 					<input type="checkbox" /> Red <br />
 					<input type="checkbox" /> Yellow <br />
 					<input type="checkbox" /> Green <br />
 					<input type="checkbox" /> Blue <br />
 				</span>
-			<input type="checkbox" id="c2" class="disp1" onclick="displayChildList(this)" /> MOVIES <br />
-				<span class="hid2">
+			<input type="checkbox" id="c2" class="disp" onclick="displayChildList(this)" /> MOVIES <br />
+				<span class="c2-hide">
 					<input type="checkbox" /> Dar <br />
 					<input type="checkbox" /> sir <br />
 				</span>
-			<input type="checkbox" id="c3" class="disp1" onclick="displayChildList(this)" /> DRINKS <br />
-				<span class="hid3">
+			<input type="checkbox" id="c3" class="disp" onclick="displayChildList(this)" /> DRINKS <br />
+				<span class="c3-hide">
 					<input type="checkbox" /> Coke <br />
 					<input type="checkbox" /> Pepsi <br />
 					<input type="checkbox" /> Dew <br />
 				</span>
-			<input type="checkbox" id="c4" class="disp1" onclick="displayChildList(this)" /> BIKES <br />
-				<span class="hid4">
+			<input type="checkbox" id="c4" class="disp" onclick="displayChildList(this)" /> BIKES <br />
+				<span class="c4-hide">
 					<input type="checkbox" /> V-rod <br />
 					<input type="checkbox" /> Pulser <br />
 					<input type="checkbox" /> CBZ <br />
