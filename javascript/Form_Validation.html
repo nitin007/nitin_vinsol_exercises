@@ -57,19 +57,19 @@
 		<script type="text/javascript">
 			function checkVal(frm)
 			{
-				if(frm.urLoginid.value=="")
+				if(!frm.urLoginid.value)
 				{
 					alert("Login ID cannot be empty!");
 				}
-				if(frm.urEmail.value=="")
+				if(!frm.urEmail.value)
 				{
 					alert("Email ID cannot be empty!");
 				}
-				if(frm.urName.value=="")
+				if(!frm.urName.value)
 				{
 					alert("Name cannot be empty!");
 				}
-				if(frm.urHomepage.value=="")
+				if(!frm.urHomepage.value)
 				{
 					alert("Home Page field cannot be empty!");
 				}
@@ -77,7 +77,7 @@
 				{
 					alert("Comments must have atleast 50 characters!");
 				}
-				if(frm.notified.checked==false)
+				if(!frm.notified.checked)
 				{
 					alert("Notification must be checked!");
 				}

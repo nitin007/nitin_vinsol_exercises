@@ -31,28 +31,36 @@
 					{
 						idArray.push(o.id)
 						document.getElementById("none").checked=false;
-						if(idArray.length==4)
+					}
+					
+					if(idArray.length>=4)
+					{
+						o.checked=false;
+						idArray.pop();
+						text="Only 3 days can be selected! you have already selected: ";
+						for(var j=0;j<idArray.length;j++)
 						{
-							o.checked=false;
-							idArray.pop();
-							text="Only 3 days can be selected! you have already selected: ";
-							for(var j=0;j<idArray.length;j++)
-							{
-								text+=document.getElementById(idArray[j]).nextSibling.textContent;
-							}	
-							alert(text);
-						}
+							text+=document.getElementById(idArray[j]).nextSibling.textContent;
+						}	
+						alert(text);
 					}
 				}
+				
+				
+				
 				if(o.id=="none")
 				{
-					var l=0;
+					deSelectAll();
+				}	
+			}
+			function deSelectAll()
+			{
+				var l=0;
 					while(idArray.length)
 					{
 						document.getElementById(idArray[l]).checked=false;
 						idArray.shift();
-					}
-				}	
+					}	
 			}
 		</script>
 	</head>
