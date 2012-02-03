@@ -1,0 +1,129 @@
+<html>
+	<head>
+		<style type="text/css">
+			body
+			{
+				margin:0px;
+				padding:0px;
+				font-family:arial;
+				font-size:12px;
+			}
+			.content
+			{
+				display:block;
+				float:left;
+				width:500px;
+				background-color:#94ed86;
+				margin-left:50%;
+				position:relative;
+				left:-250px;
+				margin-top:20px;
+				
+			}
+			.header
+			{
+				display:block;
+				float:left;
+				width:500px;
+				background-color:#147F00;
+			}
+			b
+			{
+				color:#ffffff;
+			}
+			form
+			{
+				margin-left:5px;
+				margin-top:35px;
+			}
+			table
+			{
+				font-size:12px;
+			}
+			td
+			{
+				width:200px;
+				padding:10px 0px;
+			}
+			input
+			{
+				border:1px solid #147F00;;
+			}
+			#urEmail, #urName
+			{
+				background-color:yellow;
+			}
+		</style>
+		<script type="text/javascript">
+			function checkVal(frm)
+			{
+				if(frm.urLoginid.value=="")
+				{
+					alert("Login ID cannot be empty!");
+				}
+				if(frm.urEmail.value=="")
+				{
+					alert("Email ID cannot be empty!");
+				}
+				if(frm.urName.value=="")
+				{
+					alert("Name cannot be empty!");
+				}
+				if(frm.urHomepage.value=="")
+				{
+					alert("Home Page field cannot be empty!");
+				}
+				if(frm.aboutMe.value.length<50)
+				{
+					alert("Comments must have atleast 50 characters!");
+				}
+				if(frm.notified.checked==false)
+				{
+					alert("Notification must be checked!");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="content">
+			<div class="header">
+				<center><b>Registration form</b></center>
+			</div>
+			<form>
+				<table>
+					<tr>
+						<td>Login Id:</td> 
+						<td><input type="text" id="urLoginid" /></td>
+					</tr>
+					<tr>
+						<td>Email:</td>
+						<td><input type="text" id="urEmail" /></td>
+					</tr>
+					<tr>
+						<td>Name:</td> 
+						<td><input type="text" id="urName" /></td>
+					</tr>
+					<tr>
+						<td>Time Zone:</td>
+						<td>
+							<select>
+								<option>GMT</option>
+								<option>Non-GMT</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Home Page:</td> 
+						<td><input type="text" id="urHomepage" /></td>
+					</tr>
+				</table> <br />
+				About me: <br />
+				<textarea rows="7" cols="50" id="aboutMe" id="aboutMe"></textarea> <br /><br />
+				<input type="checkbox" id="notified" /><b>Receive notification of events</b> you will be sent an email when someone posts comments to your Blog or Album
+				<br /><br />
+				<center>your password will be mailed to you <br />
+				<button type="button" onclick="checkVal(this.form)">GO</button></center>
+			</form>
+		</div>
+	</body>
+</html>
