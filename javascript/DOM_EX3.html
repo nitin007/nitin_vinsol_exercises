@@ -26,9 +26,14 @@
 				var text1=document.createElement("input");
 				var text2=document.createElement("input");
 				
-				var text3=document.createElement("button");
+				text1.setAttribute=("type","text");
+				text2.setAttribute=("type","text");
 				
-				// Input
+				
+				var text3=document.createElement("button");
+				text3.setAttribute=("type","button");
+				
+				// Should be in save
 				var tNode1=document.createTextNode("");
 				var tNode2=document.createTextNode("");
 				
@@ -52,9 +57,6 @@
 				aDiv.appendChild(aNode1);
 				aDiv.appendChild(aNode2);
 				
-				text1.setAttribute=("type","text");
-				text2.setAttribute=("type","text");
-				text3.setAttribute=("type","button");
 				
 				text3.innerHTML="save";
 				
