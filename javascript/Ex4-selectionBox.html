@@ -1,0 +1,82 @@
+<html>
+	<head>
+		<style type="text/css">
+			.defaultBox
+			{
+				display:block;
+				float:left;
+			}
+			
+			.newBox
+			{
+				display:block;
+				float:left;
+			}
+			.buttons
+			{
+				display:block;
+				float:left;
+				margin-top:60px;
+			}
+		</style>
+		<script type="text/javascript">
+			function addCountry()
+			{	
+				var defaultListBox = document.getElementById("defaultList");
+				
+				if(!defaultListBox[defaultListBox.selectedIndex])
+				{
+					alert("You didn't select any value!");
+					return;
+				}
+				
+				var textNode = document.createTextNode(defaultListBox[defaultListBox.selectedIndex].value);
+				defaultListBox.removeChild(defaultListBox[defaultListBox.selectedIndex]);
+				
+				var newListBox = document.getElementById("newList");
+				var optElement = document.createElement("option");
+				optElement.appendChild(textNode);
+				newListBox.appendChild(optElement);
+			}
+			function removeCountry()
+			{
+				var newListBox = document.getElementById("newList");
+				
+				if(!newListBox[newListBox.selectedIndex])
+				{
+					alert("You didn't select any value!");
+					return;
+				}
+				
+				var textNode = document.createTextNode(newListBox[newListBox.selectedIndex].value);
+				newListBox.removeChild(newListBox[newListBox.selectedIndex]);
+				
+				var defaultListBox = document.getElementById("defaultList");
+				var optElement = document.createElement("option");
+				optElement.appendChild(textNode);
+				defaultListBox.appendChild(optElement);
+			}
+		</script>
+	</head>
+	<body>
+		<div class="defaultBox">
+			<select size="5" id="defaultList">
+				<option>India</option>
+				<option>Pakistan</option>
+				<option>South Africa</option>
+				<option>Austrailia</option>
+				<option>Canada</option>
+			</select>
+		</div>
+		
+		<div class="buttons">
+			<button type="button" onclick="addCountry()">Add</button>
+			<button type="button" onclick="removeCountry()">Remove</button>
+		</div>
+		
+		<div class="newBox">
+			<select size="5" id="newList">
+			</select>
+		</div>
+	</body>
+</html>
