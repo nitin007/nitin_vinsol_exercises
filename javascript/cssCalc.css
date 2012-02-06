@@ -1,0 +1,57 @@
+.outerBody
+{
+	display:block;
+	float:left;
+	width:192px;
+	margin-left:50%;
+	margin-top:5%;
+	position:relative;
+	left:-106px;
+	border:1px solid black;
+	padding:15px;
+	background-color:#2d2d2d;
+}
+
+.screen
+{
+	display:block;
+	float:left;
+	width:300px;
+}
+
+input
+{
+	width:192px;
+	height:30px;
+	padding:3px;
+	border:1px solid black;	
+}
+
+.keyPad
+{
+	display:block;
+	float:left;
+	width:172px;
+	border:1px solid black;	
+	margin-top:20px;
+	padding:10px;
+	background-color:#CFDBEC;
+}
+
+button
+{
+	width:40px;
+	height:40px;
+}
+
+button#digit_0
+{
+	width:84px;
+	height:40px;
+}
+
+button#clear
+{
+	width:172px;
+	height:40px;
+}

@@ -1,67 +1,11 @@
 <html>
 	<head>
-		<style type="text/css">
-			.outerBody
-			{
-				display:block;
-				float:left;
-				width:192px;
-				margin-left:50%;
-				margin-top:5%;
-				position:relative;
-				left:-106px;
-				border:1px solid black;
-				padding:15px;
-				background-color:#2d2d2d;
-			}
-			
-			.screen
-			{
-				display:block;
-				float:left;
-				width:300px;
-			}
-			
-			input
-			{
-				width:192px;
-				height:30px;
-				padding:3px;
-				border:1px solid black;	
-			}
-			
-			.keyPad
-			{
-				display:block;
-				float:left;
-				width:172px;
-				border:1px solid black;	
-				margin-top:20px;
-				padding:10px;
-				background-color:#CFDBEC;
-			}
-			
-			button
-			{
-				width:40px;
-				height:40px;
-			}
-			
-			button#digit_0
-			{
-				width:84px;
-				height:40px;
-			}
-			
-			button#clear
-			{
-				width:172px;
-				height:40px;
-			}
-		</style>
+		<link rel = stylesheet type = text/css href = cssCalc.css>
+		</link>
+		
 		
 		<script type="text/javascript">
-			var temp, intEquiv, flag = 0, flagA=0, flagS = 0, flagM = 0, flagD = 0, flagE = 0, resAS = 0, resMD = 1, count = 0, countf = 1;
+			var temp, flag = 0, flagA=0, flagS = 0, flagM = 0, flagD = 0, flagE = 0, resAS = 0, resMD = 1, count = 0;
 			function displayDigit(o)
 			{
 				var inputText = document.getElementsByTagName("input")[0];
@@ -329,24 +273,23 @@
 						flagE = 0;
 					}
 				
-					intEquiv = parseInt(o.textContent);
 					if(!flag)
 					{
 						if(o.id=="digit_0")
 						{
-							temp = intEquiv;
-							inputText.value = intEquiv;
+							temp = parseInt(o.textContent);
+							inputText.value = parseInt(o.textContent);
 						}
 						else
 						{
-							temp = intEquiv;
-							inputText.value = intEquiv;
+							temp = parseInt(o.textContent);
+							inputText.value = parseInt(o.textContent);
 							flag = 1;
 						}
 					}
 					else
 					{
-						temp = (temp*10) + intEquiv;
+						temp = (temp*10) + parseInt(o.textContent);
 						inputText.value = temp;
 						flag = 1;
 					}

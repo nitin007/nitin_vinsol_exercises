@@ -1,16 +1,8 @@
 <html>
 	<head>
 		<script type="text/javascript">
-			var openUrl = prompt("Enter any URL:","");
-			if(openUrl)
-			{
-				window.open("http://"+openUrl, "_blank", width = "400", height = "450", toolbar = "yes", scrollbars = "yes", resizable = "no");
-			}
-			else
-			{
-				alert("URL field is empty!");
-				showPrompt();
-			}
+			
+			showPrompt();
 			function showPrompt()
 			{
 				var openUrl = prompt("Enter any URL:","");
@@ -24,6 +16,7 @@
 					showPrompt();
 				}
 			}
+			
 		</script>
 	</head>
 	<body>
