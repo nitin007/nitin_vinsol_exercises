@@ -1,0 +1,387 @@
+<html>
+	<head>
+		<style type="text/css">
+			.outerBody
+			{
+				display:block;
+				float:left;
+				width:192px;
+				margin-left:50%;
+				margin-top:5%;
+				position:relative;
+				left:-106px;
+				border:1px solid black;
+				padding:15px;
+				background-color:#2d2d2d;
+			}
+			
+			.screen
+			{
+				display:block;
+				float:left;
+				width:300px;
+			}
+			
+			input
+			{
+				width:192px;
+				height:30px;
+				padding:3px;
+				border:1px solid black;	
+			}
+			
+			.keyPad
+			{
+				display:block;
+				float:left;
+				width:172px;
+				border:1px solid black;	
+				margin-top:20px;
+				padding:10px;
+				background-color:#CFDBEC;
+			}
+			
+			button
+			{
+				width:40px;
+				height:40px;
+			}
+			
+			button#digit_0
+			{
+				width:84px;
+				height:40px;
+			}
+			
+			button#clear
+			{
+				width:172px;
+				height:40px;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			var temp, intEquiv, flag = 0, flagA=0, flagS = 0, flagM = 0, flagD = 0, flagE = 0, resAS = 0, resMD = 1, count = 0, countf = 1;
+			function displayDigit(o)
+			{
+				var inputText = document.getElementsByTagName("input")[0];
+				
+				if (o.id=="divide")
+				{
+					flag = 0;
+					flagE = 0;
+					if(flagA)
+					{
+						doAddition();
+						resMD = resAS;
+						temp = 1;
+					}
+					if(flagS)
+					{
+						doSubtraction();
+						resMD = resAS;
+						temp = 1;
+					}
+					if(flagM)
+					{
+						doMultiplication();
+						temp = 1;
+					}
+					doDivision();
+					return;
+				}
+				
+				function doDivision()
+				{
+					if(!count)
+					{
+						inputText.value = o.textContent;
+						resMD = temp/resMD;
+						count++;
+					}
+					else
+					{
+						resMD = resMD/temp
+						inputText.value = resMD;
+						count++;
+					}
+					flagD = 1;
+					flagM=0, flagS=0, flagA=0;
+				}
+				
+				
+				
+				
+				
+				
+				
+				if (o.id=="multiply")
+				{
+					flag = 0;
+					flagE = 0;
+					if(flagA)
+					{
+						doAddition();
+						resMD = resAS;
+						temp = 1;
+					}
+					if(flagS)
+					{
+						doSubtraction();
+						resMD = resAS;
+						temp = 1;
+					}
+					if(flagD)
+					{
+						doDivision();
+						temp = 1;
+					}					
+
+					doMultiplication();
+					return;
+				}
+				
+				function doMultiplication()
+				{
+					if(!count)
+					{
+						inputText.value = o.textContent;
+						resMD = resMD * temp;
+						count++;
+					}
+					else
+					{
+						resMD = resMD * temp;
+						inputText.value = resMD;
+						count++;
+					}
+					flagM = 1;
+					flagA=0, flagS=0, flagD=0;
+				}
+			
+			
+			
+			
+			
+			
+			
+				if (o.id=="minus")
+				{
+					flag = 0;
+					flagE = 0;
+					if(flagA)
+					{
+						doAddition();
+						temp = 0;
+					}
+					if(flagM)
+					{
+						doMultiplication();
+						resAS = resMD;
+						temp = 0;
+					}
+					if(flagD)
+					{
+						doDivision();
+						resAS = resMD;
+						temp = 0;
+					}					
+					doSubtraction();
+					return;
+				}
+				
+				function doSubtraction()
+				{
+					if(!count)
+					{
+						inputText.value = o.textContent;
+						resAS = temp - resAS;
+						count++;
+					}
+					else
+					{
+						resAS = resAS - temp;
+						inputText.value = resAS;
+						count++;
+					}
+					flagS = 1;
+					flagM=0, flagA=0, flagD=0;
+				}
+				
+				
+				
+				
+				
+				
+				if (o.id=="plus")
+				{
+					flag = 0;
+					flagE = 0;
+					if(flagS)
+					{
+						doSubtraction();
+						temp = 0;
+					}
+					if(flagM)
+					{
+						doMultiplication();
+						resAS = resMD;
+						temp = 0;
+					}
+					if(flagD)
+					{
+						doDivision();
+						resAS = resMD;
+						temp = 0;
+					}
+					doAddition();
+					return;
+				}
+				
+				function doAddition()
+				{
+					if(!count)
+					{
+						inputText.value = o.textContent;
+						resAS = resAS + temp;
+						count++;
+					}
+					else
+					{
+						resAS = resAS + temp;
+						inputText.value = resAS;
+						count++;
+					}
+					flagA = 1;
+					flagM=0, flagS=0, flagD=0;
+				}
+			
+			
+
+
+
+			
+				if(o.id=="equal_to")
+				{
+					flag = 0;
+					flagE = 1;
+					equalTo();
+					return;
+				}
+				function equalTo()
+				{
+					if(flagA)
+					{
+						resAS = resAS + temp;
+						inputText.value = resAS;
+						count = 0;
+						temp = 0;
+							
+					}
+					else if(flagS)
+					{
+						resAS = resAS - temp;
+						inputText.value = resAS;
+						temp = 0;
+						//count = 0;
+					}
+					
+					
+					else if(flagM)
+					{
+						resMD = resMD * temp;
+						inputText.value = resMD;
+						count = 0;
+						temp = 1;
+					}
+					
+					else
+					{
+						resMD = resMD / temp;
+						inputText.value = resMD;
+						//count = 0;
+						temp = 1;
+					}
+				}
+			
+				
+				
+				
+				
+				if(o.id=="clear")
+				{
+					inputText.value = "0";
+					flag = 0;
+					resAS = 0;
+					resMD = 1;
+					count = 0;
+					flagA = 0;
+					flagS = 0;
+					flagM = 0;
+					flagD = 0;
+				}
+				else
+				{
+					if(flagE)
+					{
+						resAS = 0;
+						resMD = 1;
+						flagE = 0;
+					}
+				
+					intEquiv = parseInt(o.textContent);
+					if(!flag)
+					{
+						if(o.id=="digit_0")
+						{
+							temp = intEquiv;
+							inputText.value = intEquiv;
+						}
+						else
+						{
+							temp = intEquiv;
+							inputText.value = intEquiv;
+							flag = 1;
+						}
+					}
+					else
+					{
+						temp = (temp*10) + intEquiv;
+						inputText.value = temp;
+						flag = 1;
+					}
+				}
+				
+			}
+		</script>
+	</head>
+	
+	
+	
+	
+	<body>
+		<div class="outerBody">
+			<div class="screen">
+				<input type="text" />
+			</div>
+			<div class="keyPad">
+				<button type="button" id="digit_1" onclick="displayDigit(this)">1</button>
+				<button type="button" id="digit_2" onclick="displayDigit(this)">2</button>
+				<button type="button" id="digit_3" onclick="displayDigit(this)">3</button>
+				<button type="button" id="divide" onclick="displayDigit(this)">/</button>
+				<button type="button" id="digit_4" onclick="displayDigit(this)">4</button>
+				<button type="button" id="digit_5" onclick="displayDigit(this)">5</button>
+				<button type="button" id="digit_6" onclick="displayDigit(this)">6</button>
+				<button type="button" id="multiply" onclick="displayDigit(this)">*</button>
+				<button type="button" id="digit_7" onclick="displayDigit(this)">7</button>
+				<button type="button" id="digit_8" onclick="displayDigit(this)">8</button>
+				<button type="button" id="digit_9" onclick="displayDigit(this)">9</button>
+				<button type="button" id="minus" onclick="displayDigit(this)">-</button>
+				<button type="button" id="equal_to" onclick="displayDigit(this)">=</button>
+				<button type="button" id="digit_0" onclick="displayDigit(this)">0</button>
+				<button type="button" id="plus" onclick="displayDigit(this)">+</button>
+				<button type="button" id="clear" onclick="displayDigit(this)">Clear</button>
+			</div>
+		</div>
+	</body>
+</html>
