@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<style type = text/css>
+		</style>
+		
+		<script type = text/javascript>
+			function checkVal(frm)
+			{
+				if(!isNumber(frm.numField))
+				{
+					alert("Please Enter No. Only!");
+					frm.resField.value = "";
+				}
+				else
+				{
+					frm.resField.value = frm.numField.value;
+				}
+			}
+			
+			function isNumber(o)
+			{
+				var rNumber = /^(\d+)+$/;
+				return rNumber.test(o.value);
+			}
+		</script>
+	</head>
+	<body>
+		<center>
+			<form action = "" method = "">
+				<table>
+				<tr>
+					<td>Enter Number</td>
+					<td><input type = "text" id = "numField" /></td>
+				</tr>
+				<tr>
+					<td>Result</td>
+					<td><input type = "text" id = "resField" /></td>
+				</tr>
+				<tr>
+					<td><input type = "button" value = "submit" onclick = "checkVal(form)"/></td>
+				</tr>
+			</form>
+		</center>
+	</body>
+</html>
