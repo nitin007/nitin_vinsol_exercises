@@ -3,19 +3,24 @@
 		<script type = "text/javascript">
 			function alertUrlParts(frm)
 			{
+			
+				var urlText = frm.url.value;
 				var reSubDom = /^(?:\w+\.)+(\w+)$/;
+				var reDom = /^(\w+)$/;
 				
-				if(!reSubDom.test(frm.url.value) && !RegExp.$1)
+				if(reSubDom.test(urlText))
 				{
-					alert("Sorry! Wrong Format");
+					alert("Sub Domain: " + urlText);
+					alert("Domain: " + RegExp.$1);
+				}
+				
+				else if(reDom.test(urlText))
+				{
+					alert("Domain: "+ urlText);
 				}
 				else
 				{
-					if(reSubDom.test(frm.url.value))
-					{
-						alert("Sub Domain: " + frm.url.value);
-					}
-					alert("Domain: " + RegExp.$1);
+					alert("sorry! Wrong Format");
 				}
 			}
 		</script>

@@ -1,5 +1,6 @@
 <!-- s@d not be working -->
 <!-- ww.fg should not be working -->
+<!-- changes done -->
 <html>
 	<head>
 		<style type="text/css">
@@ -87,13 +88,13 @@
 			
 			function isValidEmailId(o)
 			{
-				var rEmail = /^(?:\w+\.?)*\w+@(?:\w+\.?)*\w+$/;
+				var rEmail = /^(?:\w+\.?)*\w+@(?:\w+\.+)+\w+$/;
 				return rEmail.test(o.value);
 			}
 			
 			function isValidUrl(o)
 			{
-				var rUrl = /^(?:\w+\.)(?:\w+)+$/;
+				var rUrl = /^(http:\/\/|www.)(?:\w+\.)(?:\w+)$/;
 				return rUrl.test(o.value);
 			}
 		</script>
