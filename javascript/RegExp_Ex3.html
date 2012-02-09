@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<script type = "text/javascript">
+			function alertUrlParts(frm)
+			{
+				var reSubDom = /^(?:\w+\.)+(\w+)$/;
+				
+				if(!reSubDom.test(frm.url.value) && !RegExp.$1)
+				{
+					alert("Sorry! Wrong Format");
+				}
+				else
+				{
+					if(reSubDom.test(frm.url.value))
+					{
+						alert("Sub Domain: " + frm.url.value);
+					}
+					alert("Domain: " + RegExp.$1);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<center>
+			<form>
+				<table>
+					<tr>
+						<td> Enter Any URL:</td>
+					</tr>
+					<tr>
+						<td><input type = "text" id  = "url" /></td>
+						<td><input type = "button" value = "submit" onclick = "alertUrlParts(form)" /></td>
+					</tr>
+				</table>
+			</form>
+		</center>
+	</body>
+</html> 
